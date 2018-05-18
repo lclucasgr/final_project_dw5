@@ -1,0 +1,31 @@
+<div class="center jumbotron">
+  <h3>Livros Cadastrados</h3>
+
+  <%= render 'layouts/header_librarier' %>
+
+  <table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Titulo</th>
+      <th scope="col">Autor</th>
+      <th scope="col">Genero</th>
+      <th scope="col">Numero de Paginas</th>
+      <th scope="col">Ano</th>
+    </tr>
+  </thead>
+
+<% @books.each do |book| %>
+  <tr>
+    <th scope="col"><%= book.title %></th>
+    <th scope="col"><%= book.author %></th>
+    <th scope="col"><%= book.genre %></th>
+    <th scope="col"><%= book.number_page %></th>
+     <th scope="col"><%= book.year %></th>
+    <th scope="col"><%= link_to 'Update', edit_book_path(book) %></th>
+    <th><%= link_to "Delete", book, method: :delete,
+                                  data: { confirm: "You sure?" } %></th>
+  </tr>
+<% end %>
+</table>
+
+<br>

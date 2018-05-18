@@ -1,0 +1,27 @@
+<div class="center jumbotron">
+  <h3>Bibliotecarios Cadastrados</h3>
+
+  <%= render 'layouts/header_admin' %>
+
+  <table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Name</th>
+      <th scope="col">Email</th>
+      
+    </tr>
+  </thead>
+
+<% @librariers.each do |librarier| %>
+  <tr>
+    <th scope="col"><%= librarier.name %></th>
+    <th scope="col"><%= librarier.email %></th>
+    <th scope="col"><%= link_to 'Update', edit_librarier_path(librarier) %></th>
+    <th><%= link_to "Delete", librarier, method: :delete,
+                                  data: { confirm: "You sure?" } %></th>
+  </tr>
+<% end %>
+</table>
+
+<br>
+

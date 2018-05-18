@@ -1,0 +1,27 @@
+<%= render 'layouts/header_librarier' %>
+
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+  
+    
+      <%= form_for(@book) do |f| %>
+      <%= f.label :title %>
+      <%= f.text_field :title, class: 'form-control' %>
+
+      <%= f.label :author %>
+      <%= f.text_field :author, class: 'form-control' %>
+
+      <%= f.label :genre %>
+      <%= f.text_field :genre, class: 'form-control' %>
+
+      <%= f.label :number_page %>
+      <%= f.text_field :number_page, class: 'form-control' %>       
+     
+      <%= f.label :year %>
+      <%= f.text_field :year, class: 'form-control' %>
+      
+      <%= f.submit yield(:button_text), class: "btn btn-primary" %>
+    <% end %>
+
+  </div>
+</div>
