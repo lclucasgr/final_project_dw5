@@ -1,23 +1,48 @@
 class AdminsController < ApplicationController
+  
   def new
+    @admin = Admin.new
   end
 
   
+  def index
+    @admins = Admin.all
+  end 
+  
    def create
-    #admin = Admin.find_by(email: params[:session][:email].downcase)
-    #if user && user.authenticate(params[:session][:password])
-      # Log the user in and redirect to the user's show page.
-    #else
-      # Create an error message.
-     # render 'new'
-    #end
+    @admin = Admin.new(admin_params)
+    if @admin.save
+      flash[:success] = "Admin registred with success"
+      redirect_to '/admins'
+      
+    else
+      flash.now[:danger] = 'Alguns dados estao invalidos'
+      render 'new'   
+    end
   end
+
+   def update
+    @admin = Admin.find(params[:id])
+    if @admin.update_attributes(admin_params)
+      flash[:success] = "Profile updated"
+      redirect_to '/librariers'
+    else
+      render 'edit'
+    end
+  end
+
+  def edit 
+    @admin = Admin.find(params[:id])
+  end 
 
   def destroy
   end
 
-  def errors
-  end
+   private
+
+  def admin_params
+      params.require(:admin).permit(:name, :email, :password)
+    end
 
 
 end

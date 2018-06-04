@@ -3,10 +3,12 @@
     <%= link_to "Bibliolivre", "#", id: "logo" %>
     <nav>
       <ul class="nav navbar-nav navbar-right">
-        <li><%= link_to "Cadastrar Livros", books_path %></li>
-        <li><%= link_to "Visualizar Livros", livros_path %></li>
-        <li><%= link_to "Cadastrar Alunos", "#" %></li>
-        <li><%= link_to "Visualizar Alunos", "#" %></li>
+        <li><%= link_to "Cadastrar Livros", livro_path %></li>
+        <li><%= link_to "Visualizar Livros", books_path %></li>
+        <li><%= link_to "Cadastrar Alunos", aluno_path %></li>
+        <li><%= link_to "Visualizar Alunos", students_path %></li>
+        <li><%= link_to "Cadastrar Emprestimo", emprestimo_path %></li> 
+        <li><%= link_to "Visualizar Emprestimos", emprestimos_path %></li> 
 
          <li class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">

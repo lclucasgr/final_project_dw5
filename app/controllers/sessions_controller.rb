@@ -7,7 +7,7 @@ class SessionsController < ApplicationController
     if admin && admin.authenticate(params[:session][:password])
       log_in admin
       flash[:success] = "Welcome to the Bibliolivre"
-      redirect_to '/registration'
+      redirect_to '/admins'
     else
       flash.now[:danger] = 'Invalid email/password combination'
       render 'admins'

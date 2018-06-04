@@ -1,4 +1,5 @@
 class LibrariersController < ApplicationController
+   before_action :logged_in_admin, only: [:index, :edit, :update, :new, :destroy]
 
   def show
     @librarier = Librarier.find(params[:id])
@@ -43,6 +44,13 @@ class LibrariersController < ApplicationController
       render 'edit'
     end
   end
+
+  def logged_in_admin
+      unless admin_logged_in?
+        flash[:danger] = "Only admins authenticated can this link"
+        redirect_to root_path
+      end
+    end
 
   private
 

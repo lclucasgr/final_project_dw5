@@ -1,19 +1,22 @@
-<%= render 'layouts/header_admin' %>
+<%= render 'layouts/header_librarier' %>
+
 <div class="row">
   <div class="col-md-6 col-md-offset-3">
   
     
-      <%= form_for(@librarier) do |f| %>
+      <%= form_for(@student) do |f| %>
       <%= f.label :name %>
       <%= f.text_field :name, class: 'form-control' %>
 
       <%= f.label :email %>
       <%= f.email_field :email, class: 'form-control' %>
 
-      <%= f.label :password %>
-      <%= f.password_field :password, class: 'form-control' %>
+      <%= f.label :turma %>
+      <%= f.text_field :turma, class: 'form-control' %>
 
-      
+       <%= f.label :celular %>
+      <%= f.text_field :celular, class: 'form-control' %>
+     
       <%= f.submit yield(:button_text), class: "btn btn-primary" %>
     <% end %>
 

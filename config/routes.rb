@@ -1,15 +1,24 @@
 Rails.application.routes.draw do
 
+  get 'loan/index'
+
   resources :librariers
   resources :books
+  resources :students
+  resources :admins
+  resources :loans
   
   root 'home#index'
 
   #criacao de bibliotecarios
   get '/registration', to: 'librariers#new'
   post '/registration', to: 'librariers#create'
-  
   get '/librariers', to: 'librariers#index'
+
+  #criacao de emprestimos
+  get '/emprestimo', to: 'loans#new'
+  post '/emprestimo', to: 'loans#create'
+  get '/emprestimos', to: 'loans#index'
   
   #autenticacao de bibliotecarios
   get    '/lib',   to: 'sessions#librariers'
@@ -17,15 +26,24 @@ Rails.application.routes.draw do
   delete '/finish', to: 'sessions#finish'
   #delete '/librariers',  to: 'sessions#destroy'
 
-  get '/books', to: 'books#new'
-  post '/books', to: 'books#create'
+  #crud de livros
+  get '/livro', to: 'books#new'
+  post '/livro', to: 'books#create'
+  get '/books', to: 'books#index'
 
-  get '/livros', to: 'books#index'
+  #crud de alunos
+  get '/aluno', to: 'students#new'
+  post '/students', to: 'students#create'
+  get '/students', to: 'students#index'
 
-  
+  get '/admin', to: 'admins#new'
+  post '/admin', to: 'admins#create'
 
-  get    '/admins',   to: 'sessions#admins'
-  post   '/admins',   to: 'sessions#create'
+  get '/admins', to: 'admins#index'
+
+  #autenticacao de admins
+  get    '/adm',   to: 'sessions#admins'
+  post   '/adm',   to: 'sessions#create'
   delete '/logout',  to: 'sessions#destroy'
   
 

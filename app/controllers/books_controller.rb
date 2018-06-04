@@ -1,4 +1,5 @@
 class BooksController < ApplicationController
+   before_action :logged_in_librarier, only: [:index, :edit, :update, :new, :destroy]
 
   def new
     @book = Book.new
@@ -40,6 +41,13 @@ class BooksController < ApplicationController
       render 'edit'
     end
   end
+
+  def logged_in_librarier
+      unless librarier_logged_in?
+        flash[:danger] = "Only librariers authenticated can this link"
+        redirect_to root_path
+      end
+    end
 
    private
 

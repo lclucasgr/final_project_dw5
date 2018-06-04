@@ -7,6 +7,7 @@ class CreateBooks < ActiveRecord::Migration[5.1]
       t.integer :number_page
       t.integer :year
 
+      t.boolean :disponivel, default: true
       t.timestamps
     end
   end
