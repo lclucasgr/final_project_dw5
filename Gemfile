@@ -27,11 +27,19 @@ group :development do
   gem 'spring-watcher-listen', '2.0.1'
 end
 
+
 group :test do
   gem 'rails-controller-testing', '1.0.2'
   gem 'minitest-reporters',       '1.1.14'
   gem 'guard',                    '2.13.0'
   gem 'guard-minitest',           '2.4.4'
+  gem 'capistrano',         require: false
+  gem 'sshkit-sudo',        require: false
+  gem 'capistrano-rvm',     require: false
+  gem 'capistrano-rails',   require: false
+  gem 'capistrano-bundler', require: false
+  gem 'capistrano3-puma',   require: false
+  gem 'capistrano-rails-db',require: false
 end
 
 group :production do
