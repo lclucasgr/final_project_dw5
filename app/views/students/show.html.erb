@@ -1,0 +1,12 @@
+  <h1>Student : <%= @student.name %></h1>
+
+  <% @student.loans.each do |loan| %>
+    <ol>
+      <h3>Data do emprestimo: <%= I18n.l(loan.created_at) %></li></h3>
+      <h3>Livro: <%= loan.book.title %></h3>	
+    </ol>
+  <% end %>
+</p>
+
+
+<%= link_to 'Back', books_path %>

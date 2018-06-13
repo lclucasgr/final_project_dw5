@@ -19,7 +19,10 @@
      
       <%= f.label :year %>
       <%= f.text_field :year, class: 'form-control' %>
-      
+
+      <%= f.label :picture %>
+      <%= f.file_field :picture, class: 'form-control' %>
+  
       <%= f.submit yield(:button_text), class: "btn btn-primary" %>
     <% end %>
 

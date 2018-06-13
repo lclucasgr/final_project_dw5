@@ -1,5 +1,5 @@
 <div class="center jumbotron">
-  <h3>Alunos Cadastrados</h3>
+  <h3>Alunos Cadastrados, Total: <%= @quantity_students %></h3>
 
   <%= render 'layouts/header_librarier' %>
 
@@ -10,6 +10,7 @@
       <th scope="col">Email</th>
       <th scope="col">Turma</th>
       <th scope="col">Celular</th>
+      <th scope="col">Emprestimos</th>
     </tr>
   </thead>
 
@@ -19,6 +20,7 @@
     <th scope="col"><%= student.email %></th>
     <th scope="col"><%= student.turma %></th>
     <th scope="col"><%= student.celular %></th>
+    <th scope="col"><%= link_to 'Emprestimos', student %></th>
     <th scope="col"><%= link_to 'Update', edit_student_path(student) %></th>
      <th><%= link_to "Delete", student, method: :delete,
                                   data: { confirm: "You sure?" } %></th>

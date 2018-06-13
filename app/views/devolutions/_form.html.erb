@@ -3,10 +3,8 @@
 <div class="row">
   <div class="col-md-6 col-md-offset-3">
    
-    <%= form_for(@loan) do |f| %>
-      <%= f.collection_select(:book_id, @books, :id, :title)  %> 
-
-      <%= f.collection_select(:student_id, Student.all, :id, :name)  %>
+    <%= form_for(@devolution) do |f| %>
+      <%= f.collection_select(:book_id, @livros, :id, :title)  %> 
 
       <%= f.submit yield(:button_text), class: "btn btn-primary" %> 
     <% end %>

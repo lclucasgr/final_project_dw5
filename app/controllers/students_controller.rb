@@ -1,11 +1,18 @@
 class StudentsController < ApplicationController
-  before_action :logged_in_librarier, only: [:index, :edit, :update, :new, :destroy]
+  before_action :logged_in_librarier, only: [:index, :edit, :update, :new, :destroy, :show]
+  
   def new
   	@student = Student.new
   end
 
+
+  def show 
+    @student = Student.find(params[:id])
+  end 
+
   def index
      @students = Student.all
+     @quantity_students = Student.count
   end
 
   def edit 
@@ -45,6 +52,13 @@ class StudentsController < ApplicationController
    def logged_in_librarier
       unless librarier_logged_in?
         flash[:danger] = "Only librariers authenticated can this link"
+        redirect_to root_path
+      end
+    end
+
+    def logged_in_admin
+      unless admin_logged_in?
+        flash[:danger] = "Only admins authenticated can this link"
         redirect_to root_path
       end
     end

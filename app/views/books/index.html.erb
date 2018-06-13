@@ -1,5 +1,5 @@
 <div class="center jumbotron">
-  <h3>Livros Cadastrados</h3>
+  <h3>Livros Cadastrados, Total: <%= @quantity_books %></h3>
 
   <%= render 'layouts/header_librarier' %>
 
@@ -11,6 +11,7 @@
       <th scope="col">Genero</th>
       <th scope="col">Numero de Paginas</th>
       <th scope="col">Ano</th>
+      <th scope="col">Imagem</th>
     </tr>
   </thead>
 
@@ -21,6 +22,7 @@
     <th scope="col"><%= book.genre %></th>
     <th scope="col"><%= book.number_page %></th>
      <th scope="col"><%= book.year %></th>
+     <th scope="col"><%= link_to 'Ver Imagem', book %></th>
     <th scope="col"><%= link_to 'Update', edit_book_path(book) %></th>
     <th><%= link_to "Delete", book, method: :delete,
                                   data: { confirm: "You sure?" } %></th>

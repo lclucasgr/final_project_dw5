@@ -12,7 +12,9 @@ class LoansController < ApplicationController
     @loan = Loan.new(loan_params)
     if @loan.save
       flash[:success] = "Loan registred with success"
+      @loan.book.update(disponivel: false)
       redirect_to '/emprestimos'
+      
       
     else
       flash.now[:danger] = 'Alguns dados estao invalidos'
@@ -22,6 +24,8 @@ class LoansController < ApplicationController
 
   def new
   	@loan = Loan.new;
+    @books = Book.where(disponivel: true)
+
   end 
 
   def edit
@@ -32,18 +36,6 @@ class LoansController < ApplicationController
     Loan.find(params[:id]).destroy
     flash[:success] = "loan deleted"
     redirect_to '/emprestimos'
-  end
-
-  def create
-    @loan = Loan.new(loan_params)
-    if @loan.save
-      flash[:success] = "Loan registred with success"
-      redirect_to '/emprestimos'
-      
-    else
-      flash.now[:danger] = 'Alguns dados estao invalidos'
-      render 'new'   
-    end
   end
 
   def update

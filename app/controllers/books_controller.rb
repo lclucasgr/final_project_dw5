@@ -1,11 +1,18 @@
 class BooksController < ApplicationController
-   before_action :logged_in_librarier, only: [:index, :edit, :update, :new, :destroy]
+   before_action :logged_in_librarier, only: [:index, :edit, :update, :new, :destroy, :show]
 
   def new
     @book = Book.new
+    #books = Book.where(disponivel: true)
+
   end
 
+  def show 
+    @book = Book.find(params[:id])
+  end  
+
   def index
+    @quantity_books = Book.count
     @books = Book.all
   end
 
@@ -18,7 +25,6 @@ class BooksController < ApplicationController
     if @book.save
       flash[:success] = "Book registred with success"
       redirect_to '/books'
-      
     else
       flash.now[:danger] = 'Alguns dados estao invalidos'
       render 'new'   
@@ -49,10 +55,17 @@ class BooksController < ApplicationController
       end
     end
 
+   def logged_in_admin
+      unless admin_logged_in?
+        flash[:danger] = "Only admins authenticated can this link"
+        redirect_to root_path
+      end
+    end
+
    private
 
    def book_params
-      params.require(:book).permit(:title, :author, :genre, :number_page, :year)
+      params.require(:book).permit(:title, :author, :genre, :number_page, :year, :picture)
    end
 
 

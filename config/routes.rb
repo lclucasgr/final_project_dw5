@@ -1,12 +1,11 @@
 Rails.application.routes.draw do
 
-  get 'loan/index'
-
   resources :librariers
   resources :books
   resources :students
   resources :admins
   resources :loans
+  resources :devolutions
   
   root 'home#index'
 
@@ -19,6 +18,9 @@ Rails.application.routes.draw do
   get '/emprestimo', to: 'loans#new'
   post '/emprestimo', to: 'loans#create'
   get '/emprestimos', to: 'loans#index'
+
+  get '/devolucao', to: 'devolutions#new'
+  post '/devolucao', to: 'devolutions#create'
   
   #autenticacao de bibliotecarios
   get    '/lib',   to: 'sessions#librariers'

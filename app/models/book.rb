@@ -5,6 +5,8 @@ class Book < ApplicationRecord
   validates :genre, presence: true, length: { maximum: 50 }
   validates :number_page, presence: true, length: { minimum: 1 }, length: { maximum: 4 }
   validates :year, presence: true, length: { minimum: 4 }, length: { maximum: 4 }
-  has_many :loans
+  has_many :loans,  dependent: :destroy
+  has_many :devolutions
+  mount_uploader :picture, PictureUploader
 
 end

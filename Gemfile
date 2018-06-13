@@ -1,6 +1,8 @@
 source 'https://rubygems.org'
 
 gem 'rails',        '5.1.5'
+gem 'carrierwave',  '1.2.2'
+gem 'mini_magick',  '4.8.0'
 gem 'bcrypt',       '3.1.11'
 gem 'puma',         '3.9.1'
 gem 'sass-rails',   '5.0.6'
@@ -34,6 +36,7 @@ end
 
 group :production do
   gem 'pg', '0.18.4'
+  #gem 'fog', '1.42'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
