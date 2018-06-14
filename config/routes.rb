@@ -51,6 +51,8 @@ Rails.application.routes.draw do
 
   #resources: admins
   
+  #acesso a dashboard
+  get 'dashboard', to: 'librariers#dashboard'
 
 
 end

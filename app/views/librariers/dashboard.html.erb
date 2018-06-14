@@ -1,0 +1,19 @@
+<%= render 'layouts/header_librarier' %>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Alunos</th>
+      <th scope="col">Livros</th>
+      <th scope="col">Livros Disponiveis</th>
+      <th scope="col">Livros Emprestados</th>
+    </tr>
+
+    <tr>
+      <th scope="col"><%= @quantity_students %></th>
+      <th scope="col"><%= @quantity_books %></th>
+      <th scope="col"><%= @avaliable_books %></th>
+      <th scope="col"><%= @borrowed_books %></th>
+    </tr>
+  </thead>
+</table>

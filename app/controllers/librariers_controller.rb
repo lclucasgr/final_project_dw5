@@ -5,6 +5,13 @@ class LibrariersController < ApplicationController
     @librarier = Librarier.find(params[:id])
   end
 
+  def dashboard
+    @quantity_books = Book.count
+    @quantity_students = Student.count
+    @avaliable_books = Book.where(disponivel:true).count
+    @borrowed_books = Book.where(disponivel:false).count
+  end   
+
   def index
     @librariers = Librarier.all
   end 
