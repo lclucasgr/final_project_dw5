@@ -16,6 +16,14 @@ class BooksController < ApplicationController
     @books = Book.all
   end
 
+  def avaliable
+    @books_avaliable = Book.where(disponivel: true)
+  end  
+
+  def borrowed
+    @books_borrowed = Book.where(disponivel: false)
+  end
+
   def edit 
     @book = Book.find(params[:id])
   end 

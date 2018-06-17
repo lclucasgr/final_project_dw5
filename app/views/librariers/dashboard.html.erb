@@ -1,19 +1,17 @@
 <%= render 'layouts/header_librarier' %>
 
-<table class="table">
-  <thead>
+<table class="table table-bordered">
     <tr>
-      <th scope="col">Alunos</th>
-      <th scope="col">Livros</th>
-      <th scope="col">Livros Disponiveis</th>
-      <th scope="col">Livros Emprestados</th>
+      <th scope="col"><h3>Alunos</h3></th>
+      <th scope="col"><h3>Livros</h3></th>
+      <th scope="col"><h3>Livros Disponiveis</h3></th>
+      <th scope="col"><h3>Livros Emprestados</h3></th>
     </tr>
 
     <tr>
-      <th scope="col"><%= @quantity_students %></th>
-      <th scope="col"><%= @quantity_books %></th>
-      <th scope="col"><%= @avaliable_books %></th>
-      <th scope="col"><%= @borrowed_books %></th>
+      <th scope="col"><h4><%= @quantity_students %></h4></th>
+      <th scope="col"><h4><%= @quantity_books %></h4></th>
+      <th scope="col"><h4><%= @avaliable_books %></h4></th>
+      <th scope="col"><h4><%= @borrowed_books %></h4></th>
     </tr>
-  </thead>
 </table>

@@ -8,12 +8,14 @@ gem 'puma',         '3.9.1'
 gem 'sass-rails',   '5.0.6'
 gem 'uglifier',     '3.2.0'
 gem 'coffee-rails', '4.2.2'
-gem 'jquery-rails', '4.3.1'
+gem 'jquery-rails', '4.3.3' #4.3.1
 gem 'turbolinks',   '5.0.1'
 gem 'jbuilder',     '2.7.0'
 #gem 'rack-test', '0.8.3'
 gem 'bootstrap-sass', '3.3.7'
 gem 'pg', '0.18.4'
+gem 'real_notification', '0.1.2'
+gem 'redis', '4.0.1'
 
 group :development, :test do
   gem 'sqlite3', '1.3.13'

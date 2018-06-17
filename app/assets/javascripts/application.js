@@ -15,4 +15,4 @@
 //= require_tree .
 //= require jquery
 //= require bootstrap
-
+//= real_notification

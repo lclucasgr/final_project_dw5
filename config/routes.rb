@@ -53,6 +53,10 @@ Rails.application.routes.draw do
   
   #acesso a dashboard
   get 'dashboard', to: 'librariers#dashboard'
+  get 'avaliable', to: 'books#avaliable'
+  get 'borrowed', to: 'books#borrowed'
+
+  get 'chat', to: 'home#chat'
 
 
 end
