@@ -1,11 +1,29 @@
 <div class="center jumbotron">
-  <h4>Converse com o bibliotecario</h4>
-
-   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <h4>Bate Papo</h4>
    <%= render 'layouts/header_home' %>
 
+<br>
+    <h3><span id="chat"></span></h3></br>
+<hr>
+    Message:
+<br>
+    <textarea id="msg" rows="5"></textarea>
+<hr>
+    <button id="send">Send Message</button>
 
-   <h4>Escreva algo:</h4>
-    <textarea class="form-control" id="msg" rows="5"></textarea>
-    <button type="submit" class="btn btn-primary">Enviar</button>
-</div>
+<script>
+  $(document).ready(function(){
+    /* RECEIVE MESSAGE */
+    App.chat.received = function(data)
+    {
+      $("#chat").append(data['message']+"<br>")
+    }
+    
+    $("#send").click(function(){
+      msg = $("#msg").val()
+      
+      /* SEND MESSAGE */
+      App.chat.send_msg(msg)
+    })
+  })
+</script>

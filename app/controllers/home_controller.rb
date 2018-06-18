@@ -4,4 +4,8 @@ class HomeController < ApplicationController
   	@books = Book.all
   end
 
+  def chat
+
+  end	
+
 end

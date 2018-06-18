@@ -58,5 +58,7 @@ Rails.application.routes.draw do
 
   get 'chat', to: 'home#chat'
 
+  mount ActionCable.server => "/cable"
+
 
 end
