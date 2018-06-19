@@ -56,8 +56,6 @@ Rails.application.routes.draw do
   get 'avaliable', to: 'books#avaliable'
   get 'borrowed', to: 'books#borrowed'
 
-  get 'chat', to: 'home#chat'
-
   mount ActionCable.server => "/cable"
 
 

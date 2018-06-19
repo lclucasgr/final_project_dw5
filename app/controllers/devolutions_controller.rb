@@ -7,7 +7,12 @@ class DevolutionsController < ApplicationController
     if @devolution.save
       flash[:success] = "Devolution registred with success"
       @devolution.book.update(disponivel: true)
-      Devolution.broadcast_notification('web_notification_channel', {title: 'Teste', message: 'Teste'})
+      #Devolution.broadcast_notification('web_notification_channel', {title: 'Teste', message: 'Teste'})
+      
+      borrowed_books = Book.where(disponivel:false).count
+      ActionCable.server.broadcast "notification",
+            message: "Livro #{@devolution.book.title} devolvido",
+            borrowed_books: borrowed_books
       redirect_to '/emprestimos'
       
       

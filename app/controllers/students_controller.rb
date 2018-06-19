@@ -11,7 +11,7 @@ class StudentsController < ApplicationController
   end 
 
   def index
-     @students = Student.all
+     @students = Student.all.order(:name)
      @quantity_students = Student.count
   end
 
