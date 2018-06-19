@@ -1,9 +1,17 @@
 class LibrariersController < ApplicationController
    before_action :logged_in_admin, only: [:index, :edit, :update, :new, :destroy]
+   before_action :logged_in_librarier, only: [:dashboard]
 
   def show
     @librarier = Librarier.find(params[:id])
   end
+
+  def dashboard
+    @quantity_books = Book.count
+    @quantity_students = Student.count
+    @avaliable_books = Book.where(disponivel:true).count
+    @borrowed_books = Book.where(disponivel:false).count
+  end   
 
   def index
     @librariers = Librarier.all
@@ -51,6 +59,14 @@ class LibrariersController < ApplicationController
         redirect_to root_path
       end
     end
+
+    def logged_in_librarier
+      unless librarier_logged_in?
+        flash[:danger] = "Only librarier authenticated can this link"
+        redirect_to root_path
+      end
+    end
+
 
   private
 

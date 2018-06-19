@@ -1,0 +1,22 @@
+<div class="center jumbotron">
+  <h3>Livros Emprestados</h3>
+
+  <%= render 'layouts/header_librarier' %>
+
+  <table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Titulo</th>
+    </tr>
+  </thead>
+
+<% @books_borrowed.each do |book| %>
+  <tr>
+    <th scope="col"><%= book.title %></th>
+  </tr>
+<% end %>
+</table>
+
+<br>
+
+

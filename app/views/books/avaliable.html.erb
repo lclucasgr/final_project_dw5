@@ -1,0 +1,20 @@
+<div class="center jumbotron">
+  <h3>Livros Disponveis</h3>
+
+  <%= render 'layouts/header_librarier' %>
+
+  <table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Titulo</th>
+    </tr>
+  </thead>
+
+<% @books_avaliable.each do |book| %>
+  <tr>
+    <th scope="col"><%= book.title %></th>
+  </tr>
+<% end %>
+</table>
+
+<br>

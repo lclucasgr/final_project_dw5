@@ -6,7 +6,7 @@
     <%= form_for(@loan) do |f| %>
       <%= f.collection_select(:book_id, @books, :id, :title)  %> 
 
-      <%= f.collection_select(:student_id, Student.all, :id, :name)  %>
+      <%= f.collection_select(:student_id, Student.all.order(:name), :id, :name)  %>
 
       <%= f.submit yield(:button_text), class: "btn btn-primary" %> 
     <% end %>

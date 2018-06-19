@@ -2,10 +2,17 @@ class DevolutionsController < ApplicationController
    before_action :logged_in_librarier, only: [:index, :edit, :update, :new, :destroy]
 
    def create
+    
     @devolution = Devolution.new(devolution_params)
     if @devolution.save
       flash[:success] = "Devolution registred with success"
       @devolution.book.update(disponivel: true)
+      #Devolution.broadcast_notification('web_notification_channel', {title: 'Teste', message: 'Teste'})
+      
+      borrowed_books = Book.where(disponivel:false).count
+      ActionCable.server.broadcast "notification",
+            message: "Livro #{@devolution.book.title} devolvido",
+            borrowed_books: borrowed_books
       redirect_to '/emprestimos'
       
       

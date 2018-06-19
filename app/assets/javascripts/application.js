@@ -12,7 +12,10 @@
 //
 //= require rails-ujs
 //= require turbolinks
-//= require_tree .
 //= require jquery
 //= require bootstrap
+//= require cable
+//= require channels/notification
+
+
 

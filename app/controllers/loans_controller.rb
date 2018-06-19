@@ -10,9 +10,18 @@ class LoansController < ApplicationController
 
   def create
     @loan = Loan.new(loan_params)
+    
     if @loan.save
       flash[:success] = "Loan registred with success"
       @loan.book.update(disponivel: false)
+      avaliable_books = Book.where(disponivel:true).count
+
+      StudentMailer.student_email(@loan.student).deliver_later
+
+      ActionCable.server.broadcast "notification",
+            message: "Livro #{@loan.book.title} emprestado para #{@loan.student.name}",
+            avaliable_books: avaliable_books
+
       redirect_to '/emprestimos'
       
       

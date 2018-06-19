@@ -11,7 +11,7 @@ class StudentsController < ApplicationController
   end 
 
   def index
-     @students = Student.all
+     @students = Student.all.order(:name)
      @quantity_students = Student.count
   end
 
@@ -22,6 +22,9 @@ class StudentsController < ApplicationController
   def create
     @student = Student.new(student_params)
     if @student.save
+
+      StudentMailer.student_email(@student).deliver_later
+
       flash[:success] = "Students registred with success"
       redirect_to '/students'
       
