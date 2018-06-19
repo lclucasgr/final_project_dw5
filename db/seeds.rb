@@ -1,0 +1,1 @@
+Admin.create_with(password: '123456', name: 'Admin').find_or_create_by!(email: 'admin@gmail.com')
