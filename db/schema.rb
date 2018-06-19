@@ -26,9 +26,9 @@ ActiveRecord::Schema.define(version: 20180610194223) do
     t.string "genre"
     t.integer "number_page"
     t.integer "year"
+    t.boolean "disponivel", default: true
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.boolean "disponivel", default: true
     t.string "picture"
   end
 
@@ -53,7 +53,6 @@ ActiveRecord::Schema.define(version: 20180610194223) do
     t.date "data"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.boolean "disponivel"
   end
 
   create_table "students", force: :cascade do |t|

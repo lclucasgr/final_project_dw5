@@ -10,7 +10,9 @@ App.notification = App.cable.subscriptions.create "NotificationChannel",
     
     console.log(data)
 
-    alert data.message
-    $.notify("Ok");
+    #alert data.message
+    msg = "<div class='alert alert-info'>#{data.message}</div>"
+    $("body").prepend(msg)
+
     if $('#librariers_dashboard').length > 0
       $('#borrowed_books').html(data.borrowed_books)
