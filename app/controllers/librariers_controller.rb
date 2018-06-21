@@ -25,6 +25,10 @@ class LibrariersController < ApplicationController
     @librarier = Librarier.find(params[:id])
   end
 
+  def change
+    @lib = Librarier.find(params[:id])
+  end  
+
     def destroy
     Librarier.find(params[:id]).destroy
     flash[:success] = "librarier deleted"
@@ -48,6 +52,16 @@ class LibrariersController < ApplicationController
     if @librarier.update_attributes(librarier_params)
       flash[:success] = "Profile updated"
       redirect_to '/librariers'
+    else
+      render 'edit'
+    end
+  end
+
+  def update_librarier
+    @lib = Librarier.find(params[:id])
+    if @lib.update_attributes(lib_params)
+      flash[:success] = "Profile updated"
+      redirect_to '/books'
     else
       render 'edit'
     end

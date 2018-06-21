@@ -1,5 +1,6 @@
 class BooksController < ApplicationController
-   before_action :logged_in_librarier, only: [:index, :edit, :update, :new, :destroy, :show]
+   before_action :logged_in_librarier, only: [:index, :edit, :update, :new, :destroy, :show, 
+    :avaliable, :borrowed]
 
   def new
     @book = Book.new

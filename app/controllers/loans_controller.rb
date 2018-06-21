@@ -22,7 +22,7 @@ class LoansController < ApplicationController
             message: "Livro #{@loan.book.title} emprestado para #{@loan.student.name}",
             avaliable_books: avaliable_books
 
-      redirect_to '/emprestimos'
+      redirect_to '/librarier/loan/index'
       
       
     else

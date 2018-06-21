@@ -13,8 +13,8 @@ class DevolutionsController < ApplicationController
       ActionCable.server.broadcast "notification",
             message: "Livro #{@devolution.book.title} devolvido",
             borrowed_books: borrowed_books
-      redirect_to '/emprestimos'
       
+      redirect_to '/librarier/loan/index'
       
     else
       flash.now[:danger] = 'Alguns dados estao invalidos'
