@@ -1,25 +1,20 @@
+<h1>Conheça o nosso acervo</h1>
 <div class="center jumbotron">
-  <h1>Conheça o nosso acervo</h1>
+  
 
    <%= render 'layouts/header_home' %>
    
-   <table class="table">
-         
-   <% @books.each do |book| %>
-  <tr>
-    <th><%= image_tag book.picture.url %></th>
-  </tr>
-
-  <tr>
-    <th><h3>Título: <%= book.title %></h3></th>
-  </tr>
-  
-  <tr>  
-    <th><h3>Disponivel: <%= book.disponivel %></h3></th>
-  </tr>
-<% end %>
-
-</table>
+   <div class="container">
+  <div class="row">
+    <div class="col">
+      <% @books.each do |book| %>
+      <%= image_tag book.picture.url %>
+      <h3>Título: <%= book.title %></h3>
+      <h3>Disponivel: <%= book.disponivel %></h3></br>
+    </div>
+  </div>
+</div>
+     <% end %>    
     <%= will_paginate @books %> 
-
+</div>
 
