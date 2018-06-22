@@ -1,0 +1,6 @@
+development:
+  GMAIL_USERNAME: 'XXXYY@gmail.com'
+  GMAIL_PASSWORD: 'XXX'
+production:
+  GMAIL_USERNAME: 'XXXYY@gmail.com'
+  GMAIL_PASSWORD: 'XXX'

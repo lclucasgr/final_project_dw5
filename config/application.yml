@@ -1,0 +1,6 @@
+development:
+  GMAIL_USERNAME: 'lclucas2019@gmail.com'
+  GMAIL_PASSWORD: 'tsidw52019'
+production:
+  GMAIL_USERNAME: 'lclucas2019@gmail.com'
+  GMAIL_PASSWORD: 'tsidw52019'
