@@ -9,8 +9,8 @@
     <div class="col">
       <% @books.each do |book| %>
       <%= image_tag book.picture.url %>
-      <h3>Título: <%= book.title %></h3>
-      <h3>Disponivel: <%= book.disponivel %></h3></br>
+      <h3><color="red">Título: <%= book.title %></h3></color>
+      <h3>Disponivel: <%= book.disponivel %></h3></br></br>
     </div>
   </div>
 </div>
