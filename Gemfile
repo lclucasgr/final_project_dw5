@@ -17,7 +17,10 @@ gem 'bootstrap-sass', '3.3.7'
 gem 'pg', '0.18.4'
 gem 'real_notification', '0.1.2'
 gem 'redis', '4.0.1'
- gem 'simple_form'
+gem 'simple_form'
+gem 'will_paginate',           '3.1.6'
+gem 'bootstrap-will_paginate', '1.0.0'
+
 
 group :development, :test do
   gem 'sqlite3', '1.3.13'

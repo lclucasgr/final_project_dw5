@@ -4,7 +4,7 @@
    <%= render 'layouts/header_home' %>
    
    <table class="table">
-  
+         
    <% @books.each do |book| %>
   <tr>
     <th><%= image_tag book.picture.url %></th>
@@ -18,7 +18,8 @@
     <th><h3>Disponivel: <%= book.disponivel %></h3></th>
   </tr>
 <% end %>
-</table>
 
+</table>
+    <%= will_paginate @books %> 
 
 
