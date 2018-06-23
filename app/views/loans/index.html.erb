@@ -15,7 +15,6 @@
   <tr>
     <th scope="col"><%= loan.book.title %></th>
     <th scope="col"><%= loan.student.name %></th>
-    <th scope="col"><%= link_to 'Update', edit_loan_path(loan) %></th>
     <th><%= link_to "Delete", loan, method: :delete,
                                   data: { confirm: "You sure?" } %></th>
   </tr>

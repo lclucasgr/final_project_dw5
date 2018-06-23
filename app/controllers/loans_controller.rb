@@ -19,7 +19,8 @@ class LoansController < ApplicationController
       StudentMailer.student_email(@loan.student).deliver_later
 
       ActionCable.server.broadcast "notification",
-            message: "Livro #{@loan.book.title} emprestado para #{@loan.student.name}",
+            message: "Livro #{@loan.book.title} emprestado para #{@loan.student.name
+            } dia #{@loan.created_at}",
             avaliable_books: avaliable_books
 
       redirect_to '/librarier/loan/index'

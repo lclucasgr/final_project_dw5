@@ -13,8 +13,7 @@ class BooksController < ApplicationController
   end  
 
   def index
-    @quantity_books = Book.count
-    @books = Book.all
+    @books = Book.all.order(:title)
   end
 
   def avaliable
