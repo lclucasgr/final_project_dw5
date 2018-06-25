@@ -64,26 +64,16 @@ class LibrariersController < ApplicationController
     end
   end
 
-  def update_librarier
-    @lib = Librarier.find(params[:id])
-    if @lib.update_attributes(lib_params)
-      flash[:success] = "Profile updated"
-      redirect_to '/books'
-    else
-      render 'edit'
-    end
-  end
-
   def logged_in_admin
       unless admin_logged_in?
-        flash[:danger] = "Only admins authenticated can this link"
+        flash[:danger] = "Only admins authenticated can to access this link"
         redirect_to root_path
       end
     end
 
     def logged_in_librarier
       unless librarier_logged_in?
-        flash[:danger] = "Only librarier authenticated can this link"
+        flash[:danger] = "Only librariers authenticated can to access this link"
         redirect_to root_path
       end
     end
