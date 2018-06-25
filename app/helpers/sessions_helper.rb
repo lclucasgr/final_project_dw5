@@ -15,6 +15,20 @@ module SessionsHelper
     @current_librarier ||= Librarier.find_by(id: session[:librarier_id])
   end
 
+  def current_admin?(admin)
+    admin == current_admin
+  end
+
+   def current_librarier?(librarier)
+    librarier == current_librarier
+  end
+
+
+  def correct_librarier
+      @librarier = Librarier.find(params[:id])
+      redirect_to(root_url) unless current_librarier?(@librarier)
+    end
+
   def admin_logged_in?
     !current_admin.nil?
   end

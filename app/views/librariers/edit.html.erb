@@ -6,12 +6,12 @@
     <% if librarier_logged_in? %>
       <h1>Editar</h1>
       <%= render 'form', librarier: @librarier %>
-    <p><%= link_to "Cancelar", librarier_book_index_path %></p>
+      <p><%= link_to "Cancelar", librarier_book_index_path %></p>
 
     <% elsif admin_logged_in? %>
       <h1>Editar</h1>
-      <%= render 'form', librarier: @librarier %>
-    <p><%= link_to "Cancelar", admin_librarier_index_path %></p>
+       <%= render 'form', librarier: @librarier %>
+       <p><%= link_to "Cancelar", admin_librarier_index_path %></p>
 
     <% else %>
       <h1>Somente usuarios autenticados podem acessar essa area</h1>

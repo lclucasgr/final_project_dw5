@@ -7,12 +7,16 @@
       <h1>Welcome <%= @student.name %></h1>
 
       <p>
-        Você está cadastrado no sistema da biblioteca, porém terá que cumprir algumas regras
+        Voce esta cadastrado no sistema da biblioteca, mas tera que cumprir algumas regras
       </p>
 
       <ul>
-        <li>A cada emprestimo realizado você terá 7 dias de posse</li>
-        <li>Caso o livro seja danificado o aluno terá que repor o livro danificado</li>
+        <li>Apos cada emprestimo realizado voce tera no maximo 7 dias de posse com o livro</li>
+        <li>Caso o livro seja danificado o aluno tera que repor o livro danificado</li>
+        <li>A cada dia de atraso sem justificativa ira ser cobrado R$1,00 cada dia atrasado</li>
+        <li>Caso o 8º dia de posse do livro coincidir com um feriado o aluno podera entregar o livro no dia util apos o feriado sem receber multa</li>
+        <li>No caso de suspensao de atividades pedagogicas por motivos imprevistos como fenomenos naturais, paralisacoes, reunioes, greve e etc o aluno podera entregar o livro no dia que voltar as aulas
+        sem receber multa
       </ul>
    </body>
 </html>
