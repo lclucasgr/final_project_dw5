@@ -17,10 +17,12 @@ class BooksController < ApplicationController
   end
 
   def avaliable
+     @avaliable_books = Book.where(disponivel:true).count
     @books_avaliable = Book.where(disponivel: true)
   end  
 
   def borrowed
+    @borrowed_books = Book.where(disponivel:false).count
     @books_borrowed = Book.where(disponivel: false)
   end
 

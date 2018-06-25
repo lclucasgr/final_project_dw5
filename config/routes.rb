@@ -37,13 +37,13 @@ Rails.application.routes.draw do
   post 'librarier/devolution', to: 'devolutions#create'
   
   #autenticacao de bibliotecarios
-  get    '/lib',   to: 'sessions#librariers'
-  post   '/lib',   to: 'sessions#login'
+  get    '/librarier/session',   to: 'sessions#librariers'
+  post   '/librarier/session',   to: 'sessions#login'
   delete '/finish', to: 'sessions#finish'
 
   #autenticacao de admins
-  get    '/adm',   to: 'sessions#admins'
-  post   '/adm',   to: 'sessions#create'
+  get    '/admin/session',   to: 'sessions#admins'
+  post   '/admin/session',   to: 'sessions#create'
   delete '/logout',  to: 'sessions#destroy'
     
   #acesso a dashboard
