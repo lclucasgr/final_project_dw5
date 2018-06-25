@@ -11,8 +11,8 @@ class DevolutionsController < ApplicationController
       
       borrowed_books = Book.where(disponivel:false).count
       ActionCable.server.broadcast "notification",
-            message: "Livro #{@devolution.book.title} foi devolvido dia #{@devolution.created_at}
-            e emprestado dia #{@devolution.book.loans.first.created_at} por",
+            message: "#{@devolution.book.loans.first.student.name} emprestou o livro #{@devolution.book.title} dia #{@devolution.book.loans.first.created_at} e devolveu dia #{@devolution.created_at}
+            ",
             borrowed_books: borrowed_books
       
       redirect_to '/librarier/loan/index'

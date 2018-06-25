@@ -1,5 +1,5 @@
 class LibrariersController < ApplicationController
-   before_action :logged_in_admin, only: [:index, :edit, :update, :new, :destroy]
+   before_action :logged_in_admin, only: [:index, :new, :destroy]
    before_action :logged_in_librarier, only: [:dashboard]
 
   def show
@@ -51,7 +51,14 @@ class LibrariersController < ApplicationController
     @librarier = Librarier.find(params[:id])
     if @librarier.update_attributes(librarier_params)
       flash[:success] = "Profile updated"
-      redirect_to '/librariers'
+
+      if admin_logged_in?
+        redirect_to '/librariers'
+
+      else
+        redirect_to '/books'
+      end
+
     else
       render 'edit'
     end
