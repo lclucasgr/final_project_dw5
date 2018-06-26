@@ -6,8 +6,13 @@
       <% books.each do |book| %>
         <div class="col-md-4">  
           <%= image_tag book.picture.url %>
-          <h3><color="red">Título: <%= book.title %></h3></color>
-          <h3>Disponivel: <%= book.disponivel %></h3></br></br>
+          <h3>Título: <%= book.title %></h3></color>
+
+          <% if book.disponivel == true %>
+            <h3>Disponivel</h3></br></br>
+          <% else %>
+            <h3>Emprestado</h3>
+          <% end %>
         </div>
       <% end%>
     </div>
