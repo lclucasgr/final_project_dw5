@@ -1,5 +1,5 @@
-#comentar ao usar em producao
-if Rails.env.production?
+#comentar ao usar em desenvolvimento
+#if Rails.env.production?
   ActionMailer::Base.smtp_settings = {
     :address              => "smtp.gmail.com",
     :port                 => 587,
