@@ -1,6 +1,7 @@
 class LibrariersController < ApplicationController
    before_action :logged_in_admin, only: [:index, :new, :destroy]
    before_action :logged_in_librarier, only: [:dashboard]
+   #before_action :correct_librarier, only: [:edit, :update]
   
 
   def show
