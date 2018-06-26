@@ -80,12 +80,10 @@ class LibrariersController < ApplicationController
     end
 
     def correct_librarier
-
-      if librarier_logged_in? || admin_logged_in?
         @librarier = Librarier.find(params[:id])
         redirect_to(root_url) unless current_librarier?(@librarier)
-      end  
-    end
+    end  
+  
 
   private
 
