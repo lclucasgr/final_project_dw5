@@ -6,6 +6,6 @@ class Student < ApplicationRecord
   validates :email, presence: true, length: { maximum: 255 },
                     format: { with: VALID_EMAIL_REGEX },
                     uniqueness: { case_sensitive: false }
-  validates :turma, presence: true, length: { maximum: 2}, length: { minimum: 2}                 
+  validates :turma, presence: true, length: { maximum: 2, minimum: 1}                 
   validates :celular, presence: true
 end

@@ -1,5 +1,5 @@
 namespace :db do
-	task populate: :environment do
+	task populate: :production do
 
 		Book.destroy_all
 
@@ -12,5 +12,14 @@ namespace :db do
 						 disponivel: true,
 						 picture: File.open(paths.sample)  
 		end
+
+        Student.destroy_all
+
+		100.times do 
+			Student.create! name: Faker::Name.first_name,
+            email: Faker::Internet.email,
+            turma: Faker::Number.between(6, 9),
+            celular: Faker::PhoneNumber.cell_phone
+        end    
 	end
 end
