@@ -1,5 +1,5 @@
 namespace :db do
-	task populate: :production do
+	task populate: :environment do
 
 		Book.destroy_all
 
