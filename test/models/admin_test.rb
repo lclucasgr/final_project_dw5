@@ -47,4 +47,34 @@ class AdminTest < ActiveSupport::TestCase
       assert_not @admin.valid?, "#{invalid_address.inspect} should be invalid"
     end
   end
+
+  test "email addresses should be unique" do
+    duplicate_admin = @admin.dup
+    duplicate_admin.email = @admin.email.upcase
+    @admin.save
+    assert_not duplicate_admin.valid?
+  end
+
+  test "email addresses should be saved as lower-case" do
+    mixed_case_email = "Foo@ExAMPle.CoM"
+    @admin.email = mixed_case_email
+    @admin.save
+    assert_equal mixed_case_email.downcase, @admin.reload.email
+  end
+
+   test "password should be present (nonblank)" do
+    @admin.password = "  "
+    assert_not @admin.valid?
+  end
+
+  test "password should have a minimum length" do
+    @admin.password  = "a" * 5
+    assert_not @admin.valid?
+  end
+
+  test "password should have a maximum length" do
+    @admin.password  = "a" * 41
+    assert_not @admin.valid?
+  end
+
 end
