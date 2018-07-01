@@ -9,10 +9,10 @@ class AdminsEditTest < ActionDispatch::IntegrationTest
   test "unsuccessful edit" do
     log_in_as_admin(@admin)
     get edit_admin_path(@admin)
-    assert_template 'admins/edit'
+    assert_template 'admins/3/edit'
     patch admin_path(@admin), params: { admin: { name:  "",
                                               email: "foo@invalid",
-                                              password_digest:              "foo"
+                                              password_digest: "foo"
                                              } }
  
     assert_template 'admins/3/edit'
@@ -26,7 +26,7 @@ class AdminsEditTest < ActionDispatch::IntegrationTest
     email = "foo@bar.com"
     patch admin_path(@admin), params: { admin: { name:  name,
                                               email: email,
-                                              password_digest: "password"             
+                                              password: "password"             
                                             } 
                                             }
     assert_redirected_to @admin

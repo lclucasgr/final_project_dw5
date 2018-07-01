@@ -1,10 +1,10 @@
 michael:
   name: Michael Example
   email: michael@example.com
-  password_digest: 
+  password_digest: foobar
 
 joseph:
   name: Joseph
   email: joseph@example.com
-  password_digest: 
+  password_digest: foobar
 

@@ -1,8 +1,7 @@
 class LibrariersController < ApplicationController
    before_action :logged_in_admin, only: [:index, :new, :destroy]
    before_action :logged_in_librarier, only: [:dashboard]
-   #before_action :correct_librarier, only: [:edit, :update]
-  
+   before_action :correct_librarier, only: [:edit, :update]
 
   def show
     @librarier = Librarier.find(params[:id])
@@ -83,7 +82,7 @@ class LibrariersController < ApplicationController
     def correct_librarier
         @librarier = Librarier.find(params[:id])
         redirect_to(root_url) unless current_librarier?(@librarier)
-    end  
+    end 
   
 
   private
