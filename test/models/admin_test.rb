@@ -77,4 +77,5 @@ class AdminTest < ActiveSupport::TestCase
     assert_not @admin.valid?
   end
 
+
 end

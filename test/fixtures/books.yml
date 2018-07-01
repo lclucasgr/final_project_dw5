@@ -1,15 +1,13 @@
-# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+alice:
+  title: Alice no pais das maravilhas
+  author: Paulo Leminski
+  genre: infantil
+  number_page : 80
+  year: 2000
 
-one:
-  title: MyString
-  author: MyString
-  genre: MyString
-  number_page: 1
-  year: 1
-
-two:
-  title: MyString
-  author: MyString
-  genre: MyString
-  number_page: 1
-  year: 1
+porquinhos:
+  title: Tres porquinhos
+  author: Mario Quintana
+  genre: infantil
+  number_page : 20
+  year: 2001

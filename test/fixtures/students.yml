@@ -1,13 +1,12 @@
-# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+pablo:
+  name: Pablo
+  email: pablo@example.com
+  turma: 3A
+  celular: 8502-9714
 
-one:
-  name: MyString
-  email: MyString
-  turma: MyString
-  celular: MyString
+luiz:
+  name: Luiz
+  email: luiz@example.com
+  turma: 1A
+  celular: 8514-9702
 
-two:
-  name: MyString
-  email: MyString
-  turma: MyString
-  celular: MyString
