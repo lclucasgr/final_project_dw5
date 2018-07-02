@@ -1,7 +1,7 @@
 class LibrariersController < ApplicationController
    before_action :logged_in_admin, only: [:index, :new, :destroy]
    before_action :logged_in_librarier, only: [:dashboard]
-   before_action :correct_librarier, only: [:edit, :update]
+   #before_action :correct_librarier, only: [:edit, :update]
 
   def show
     @librarier = Librarier.find(params[:id])
@@ -40,7 +40,7 @@ class LibrariersController < ApplicationController
     @librarier = Librarier.new(librarier_params)
     if @librarier.save
       flash[:success] = "Librarier registred with success"
-      redirect_to '/librariers'
+      redirect_to '/admin/librarier/index'
       
     else
       flash.now[:danger] = 'Alguns dados estao invalidos'
@@ -54,10 +54,10 @@ class LibrariersController < ApplicationController
       flash[:success] = "Profile updated"
 
       if admin_logged_in?
-        redirect_to '/librariers'
+        redirect_to '/admin/librarier/index'
 
       else
-        redirect_to '/books'
+        redirect_to '/librarier/book/index'
       end
 
     else

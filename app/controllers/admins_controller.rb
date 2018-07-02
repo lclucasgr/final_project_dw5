@@ -27,7 +27,7 @@ class AdminsController < ApplicationController
     @admin = Admin.find(params[:id])
     if @admin.update_attributes(admin_params)
       flash[:success] = "Profile updated"
-      redirect_to '/librariers'
+      redirect_to '/admin/librarier/index'
     else
       render 'edit'
     end

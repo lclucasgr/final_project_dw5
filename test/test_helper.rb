@@ -19,6 +19,14 @@ class ActiveSupport::TestCase
     session[:admin_id] = admin.id
   end
 
+  def is_librarier_logged_in?
+    !session[:librarier_id].nil?
+  end
+
+  def log_in_as_librarier(librarier)
+    session[:librarier_id] = librarier.id
+  end
+
 end
   class ActionDispatch::IntegrationTest
 
@@ -28,4 +36,13 @@ end
                                           password: admin.password
                                            } }
   end
+
+  def log_in_as_librarier(librarier, password: 'password')
+    post librarier_session_path, params: { session: { email: admin.email,
+                                          password: admin.password
+                                           } }
+  end
+
+
+
 end
