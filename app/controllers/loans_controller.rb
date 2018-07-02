@@ -16,7 +16,7 @@ class LoansController < ApplicationController
       @loan.book.update(disponivel: false)
       avaliable_books = Book.where(disponivel:true).count
 
-      StudentMailer.student_email(@loan.student).deliver_later
+      StudentMailer.student_email(@loan.student).deliver_now
 
       ActionCable.server.broadcast "notification",
             message: "Livro #{@loan.book.title} emprestado para #{@loan.student.name
