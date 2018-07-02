@@ -61,8 +61,7 @@ class BooksController < ApplicationController
         flash[:danger] = "Only librariers authenticated can this link"
         redirect_to root_path
       end
-    end
-
+  end
 
 
   private
