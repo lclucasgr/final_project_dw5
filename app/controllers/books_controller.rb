@@ -5,7 +5,6 @@ class BooksController < ApplicationController
   def new
     @book = Book.new
     #books = Book.where(disponivel: true)
-
   end
 
   def show 
@@ -17,7 +16,7 @@ class BooksController < ApplicationController
   end
 
   def avaliable
-     @avaliable_books = Book.where(disponivel:true).count
+    @avaliable_books = Book.where(disponivel:true).count
     @books_avaliable = Book.where(disponivel: true)
   end  
 
@@ -34,25 +33,24 @@ class BooksController < ApplicationController
     @book = Book.new(book_params)
     if @book.save
       flash[:success] = "Book registred with success"
-      redirect_to '/books'
+      redirect_to '/librarier/book/index'
     else
       flash.now[:danger] = 'Alguns dados estao invalidos'
       render 'new'   
     end
   end
 
-    def destroy
-      Book.find(params[:id]).destroy
-      flash[:success] = "book deleted"
-      redirect_to '/books'
-    end
-
+  def destroy
+    Book.find(params[:id]).destroy
+    flash[:success] = "book deleted"
+    redirect_to '/librarier/book/index'
+  end
 
   def update
     @book = Book.find(params[:id])
     if @book.update_attributes(book_params)
       flash[:success] = "Book updated"
-      redirect_to '/books'
+      redirect_to '/librarier/book/index'
     else
       render 'edit'
     end
@@ -65,14 +63,9 @@ class BooksController < ApplicationController
       end
     end
 
-   def logged_in_admin
-      unless admin_logged_in?
-        flash[:danger] = "Only admins authenticated can this link"
-        redirect_to root_path
-      end
-    end
 
-   private
+
+  private
 
    def book_params
       params.require(:book).permit(:title, :author, :genre, :number_page, :year, :picture)

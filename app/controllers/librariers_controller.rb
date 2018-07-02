@@ -30,10 +30,10 @@ class LibrariersController < ApplicationController
     @lib = Librarier.find(params[:id])
   end  
 
-    def destroy
+  def destroy
     Librarier.find(params[:id]).destroy
     flash[:success] = "librarier deleted"
-    redirect_to '/librariers'
+    redirect_to '/admin/librarier/index'
   end
 
   def create
@@ -70,25 +70,25 @@ class LibrariersController < ApplicationController
         flash[:danger] = "Only admins authenticated can to access this link"
         redirect_to root_path
       end
-    end
+  end
 
-    def logged_in_librarier
+  def logged_in_librarier
       unless librarier_logged_in?
         flash[:danger] = "Only librariers authenticated can to access this link"
         redirect_to root_path
       end
-    end
+  end
 
-    def correct_librarier
-        @librarier = Librarier.find(params[:id])
-        redirect_to(root_url) unless current_librarier?(@librarier)
-    end 
+  def correct_librarier
+      @librarier = Librarier.find(params[:id])
+      redirect_to(root_url) unless current_librarier?(@librarier)
+  end 
   
 
   private
 
   def librarier_params
       params.require(:librarier).permit(:name, :email, :password)
-    end
+  end
 
 end

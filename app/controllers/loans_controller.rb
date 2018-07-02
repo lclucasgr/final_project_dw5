@@ -34,7 +34,7 @@ class LoansController < ApplicationController
 
   def new
   	@loan = Loan.new;
-    @books = Book.where(disponivel: true)
+    @books = Book.where(disponivel: true).order(:title)
 
   end 
 
@@ -45,7 +45,7 @@ class LoansController < ApplicationController
   def destroy
     Loan.find(params[:id]).destroy
     flash[:success] = "loan deleted"
-    redirect_to '/emprestimos'
+    redirect_to '/librarier/loan/index'
   end
 
   def update
@@ -63,12 +63,12 @@ class LoansController < ApplicationController
         flash[:danger] = "Only librariers authenticated can this link"
         redirect_to root_path
       end
-    end
+  end
 
   private
 
   def loan_params
       params.require(:loan).permit(:student_id, :book_id, :data, :disponivel)
-    end
+  end
 
 end

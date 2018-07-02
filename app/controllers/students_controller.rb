@@ -35,11 +35,11 @@ class StudentsController < ApplicationController
   end
 
   
-    def destroy
+  def destroy
       Student.find(params[:id]).destroy
       flash[:success] = "Student Deleted"
       redirect_to '/students'
-    end
+  end
 
 
   def update
@@ -52,26 +52,17 @@ class StudentsController < ApplicationController
     end
   end
 
-   def logged_in_librarier
+  def logged_in_librarier
       unless librarier_logged_in?
         flash[:danger] = "Only librariers authenticated can this link"
         redirect_to root_path
       end
-    end
+  end
 
-    def logged_in_admin
-      unless admin_logged_in?
-        flash[:danger] = "Only admins authenticated can this link"
-        redirect_to root_path
-      end
-    end
-
-
+    
   private
 
-   def student_params
+    def student_params
       params.require(:student).permit(:name, :email, :turma, :celular)
-   end
-
-
+    end
 end

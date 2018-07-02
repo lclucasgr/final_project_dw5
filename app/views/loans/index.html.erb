@@ -8,6 +8,7 @@
     <tr>
       <th scope="col">Livro</th>
       <th scope="col">Aluno</th>
+      <th scope="col">Data Emprestimo</th>
     </tr>
   </thead>
 
@@ -15,6 +16,7 @@
   <tr>
     <th scope="col"><%= loan.book.title %></th>
     <th scope="col"><%= loan.student.name %></th>
+    <th scope="col"><%= loan.created_at %></th>
     <th><%= link_to "Delete", loan, method: :delete,
                                   data: { confirm: "You sure?" } %></th>
   </tr>

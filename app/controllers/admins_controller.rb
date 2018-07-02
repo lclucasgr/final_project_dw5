@@ -11,7 +11,7 @@ class AdminsController < ApplicationController
     @admins = Admin.all
   end 
   
-   def create
+  def create
     @admin = Admin.new(admin_params)
     if @admin.save
       flash[:success] = "Admin registred with success"
@@ -23,7 +23,7 @@ class AdminsController < ApplicationController
     end
   end
 
-   def update
+  def update
     @admin = Admin.find(params[:id])
     if @admin.update_attributes(admin_params)
       flash[:success] = "Profile updated"
@@ -40,23 +40,24 @@ class AdminsController < ApplicationController
   def destroy
   end
 
-   private
+  
+  private
 
   def admin_params
       params.require(:admin).permit(:name, :email, :password)
-    end
+  end
 
-    def logged_in_admin
+  def logged_in_admin
       unless admin_logged_in?
         flash[:danger] = "Only admins authenticated can this link"
         redirect_to root_path
       end
-    end
+  end
 
-    def correct_admin
-      @admin = Admin.find(params[:id])
-      redirect_to(root_url) unless current_admin?(@admin)
-    end
+  def correct_admin
+    @admin = Admin.find(params[:id])
+    redirect_to(root_url) unless current_admin?(@admin)
+  end
 
 
 end
