@@ -28,7 +28,7 @@ class BookEditTest < ActionDispatch::IntegrationTest
     year = "2019"
     genre = "Ficcao"
     number_page = "25"
-    patch admin_path(@admin), params: { book: { title: title ,
+    patch admin_path(@book), params: { book: { title: title ,
                                               author: author,
                                               year: year,
                                               genre: genre,
@@ -36,7 +36,7 @@ class BookEditTest < ActionDispatch::IntegrationTest
                                                } }
     assert_not flash.empty?
     assert_redirected_to '/admin/librarier/index'
-    @admin.reload
+    @book.reload
     assert_equal title, @book.title
     assert_equal author, @book.author 
     assert_equal year,  @book.year

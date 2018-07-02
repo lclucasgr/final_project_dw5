@@ -38,8 +38,8 @@ end
   end
 
   def log_in_as_librarier(librarier, password: 'password')
-    post librarier_session_path, params: { session: { email: admin.email,
-                                          password: admin.password
+    post librarier_session_path, params: { session: { email: librarier.email,
+                                          password: librarier.password
                                            } }
   end
 
