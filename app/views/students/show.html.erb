@@ -3,6 +3,7 @@
   <% @student.loans.each do |loan| %>
     <ol>
       <h3>Data do emprestimo: <%= I18n.l(loan.created_at) %></li></h3>
+      <h3>Data prevista para devolucao: <%= I18n.l(loan.created_at + 7.days) %></li></h3>
       <h3>Livro: <%= loan.book.title %></h3>	
     </ol>
   <% end %>

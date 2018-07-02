@@ -8,7 +8,7 @@ class DevolutionsController < ApplicationController
        @devolution.book.update(disponivel: true)     
        borrowed_books = Book.where(disponivel:false).count
        ActionCable.server.broadcast "notification",
-            message: "#{@devolution.book.loans.first.student.name} emprestou o livro #{@devolution.book.title} dia #{@devolution.book.loans.first.created_at} e devolveu dia #{@devolution.created_at}
+            message: "#{@devolution.book.loans.first.student.name} emprestou o livro #{@devolution.book.title} dia #{@devolution.book.loans.first.created_at} com data prevista para #{@devolution.book.loans.first.created_at + 7.days} devolveu dia #{@devolution.created_at}
             ",
             borrowed_books: borrowed_books
       

@@ -20,7 +20,7 @@ class LoansController < ApplicationController
 
       ActionCable.server.broadcast "notification",
             message: "Livro #{@loan.book.title} emprestado para #{@loan.student.name
-            } dia #{@loan.created_at}",
+            } dia #{@loan.created_at} para devolver dia #{@loan.created_at + 7.days}",
             avaliable_books: avaliable_books
 
       redirect_to '/librarier/loan/index'
